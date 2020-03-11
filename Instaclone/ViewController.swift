@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         
         handleTextField()
         
-        loginButton.isEnabled = false
+//        loginButton.isEnabled = false
 //        loginButton.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
     }
     
@@ -54,16 +54,16 @@ class ViewController: UIViewController {
         loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
     }
     
-//    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
+    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
 //        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
 //            if error != nil {
 //                print(error!.localizedDescription)
 //                return
 //            }
 //            print("hello")
-//            self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
+            self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
 //        }
-//    }
+    }
 }
 
 extension UIViewController {

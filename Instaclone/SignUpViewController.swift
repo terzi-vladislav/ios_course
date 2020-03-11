@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         
         handleTextField()
         
-        signUpBttn.isEnabled = false
+//        signUpBttn.isEnabled = false
         signUpBttn.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
     }
     
@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func signUpBttn_TchUpInside(_ sender: Any) {
+    @IBAction func signUpBttn_TchUpInside(_ sender: Any) {
 //
 //        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
 //            if error != nil {
@@ -119,9 +119,9 @@ class SignUpViewController: UIViewController {
 //            }
 //            self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
 //
-//            self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
+            self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
 //        }
-//    }
+    }
     
 //    func setUserInfoWithImage (profileImageURL: String, username: String, email: String, uid: String) {
 //        let ref = Database.database().reference()
