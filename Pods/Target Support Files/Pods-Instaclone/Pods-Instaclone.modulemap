@@ -1,0 +1,6 @@
+module Pods_Instaclone {
+  umbrella header "Pods-Instaclone-umbrella.h"
+
+  export *
+  module * { export * }
+}
