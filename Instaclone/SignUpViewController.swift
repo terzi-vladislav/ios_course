@@ -7,9 +7,9 @@
 //
 
 import UIKit
-//import FirebaseAuth
-//import FirebaseDatabase
-//import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         
         handleTextField()
         
-//        signUpBttn.isEnabled = false
+        signUpBttn.isEnabled = false
         signUpBttn.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
     }
     
@@ -88,54 +88,52 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBttn_TchUpInside(_ sender: Any) {
-//
-//        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
-//            if error != nil {
-//                print("error \(error!.localizedDescription)")
-//                return
-//            }
-//
-//            print("hello")
-//
-//            let uid = Auth.auth().currentUser?.uid
-//            let storageRef = Storage.storage().reference(forURL: "gs://instagram-45c6b.appspot.com").child("profile_image").child(uid!)
-//
-//            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
-//                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
-//
-//                    if error != nil {
-//                        return
-//                    }
-//
-//                    storageRef.downloadURL(completion: { (url, error) in
-//
-//                        if error != nil {
-//                            return
-//                        }
-//
-//                        self.setUserInfoWithImage(profileImageURL: url!.absoluteString, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-//                    })
-//                }
-//            }
-//            self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-//
+
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
+            if error != nil {
+                print("error \(error!.localizedDescription)")
+                return
+            }
+
+            let uid = Auth.auth().currentUser?.uid
+            let storageRef = Storage.storage().reference(forURL: "gs://flexer-1bf0f.appspot.com/files").child("profile_image").child(uid!)
+
+            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
+                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+
+                    if error != nil {
+                        return
+                    }
+
+                    storageRef.downloadURL(completion: { (url, error) in
+
+                        if error != nil {
+                            return
+                        }
+
+                        self.setUserInfoWithImage(profileImageURL: url!.absoluteString, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
+                    })
+                }
+            }
+            self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
+
             self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
-//        }
+        }
     }
     
-//    func setUserInfoWithImage (profileImageURL: String, username: String, email: String, uid: String) {
-//        let ref = Database.database().reference()
-//        let usersReference = ref.child("users")
-//        let newUserReference = usersReference.child(uid)
-//        newUserReference.setValue(["username": username, "email": email, "profile_image_url": profileImageURL])
-//    }
-//
-//    func setUserInfoWithoutImage (username: String, email: String, uid: String) {
-//        let ref = Database.database().reference()
-//        let usersReference = ref.child("users")
-//        let newUserReference = usersReference.child(uid)
-//        newUserReference.setValue(["username": username, "email": email])
-//    }
+    func setUserInfoWithImage (profileImageURL: String, username: String, email: String, uid: String) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users")
+        let newUserReference = usersReference.child(uid)
+        newUserReference.setValue(["username": username, "email": email, "profile_image_url": profileImageURL])
+    }
+
+    func setUserInfoWithoutImage (username: String, email: String, uid: String) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users")
+        let newUserReference = usersReference.child(uid)
+        newUserReference.setValue(["username": username, "email": email])
+    }
 }
 
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import FirebaseAuth
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -26,17 +26,17 @@ class ViewController: UIViewController {
         
         handleTextField()
         
-//        loginButton.isEnabled = false
-//        loginButton.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
+        loginButton.isEnabled = false
+        loginButton.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
     }
     
-//    @objc func tapped(sender: UIButton!) {
-//        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-//            emailTextField.placeholder = "enter email"
-//            passwordTextField.placeholder = "enter password"
-//            return
-//        }
-//    }
+    @objc func tapped(sender: UIButton!) {
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            emailTextField.placeholder = "enter email"
+            passwordTextField.placeholder = "enter password"
+            return
+        }
+    }
     
     func handleTextField() {
         emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -55,14 +55,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
-//        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
-//            if error != nil {
-//                print(error!.localizedDescription)
-//                return
-//            }
-//            print("hello")
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
             self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
-//        }
+        }
     }
 }
 
