@@ -42,16 +42,9 @@ class SignUpViewController: UIViewController {
         
         handleTextField()
         
-        signUpBttn.isEnabled = false
-        signUpBttn.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
-    }
-    
-     @objc func tapped(sender: UIButton!) {
-        guard let username = nameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty, password.count > 5 else {
-                passwordTextField.text = nil
-                warningText.text = "enter at least 6 characters"
-            return
-        }
+        self.signUpBttn.isEnabled = false
+        
+        signUpBttn.addTarget(self, action: #selector(SignUpViewController.signUpBttn_TchUpInside), for: .touchUpInside)
     }
     
     func handleTextField() {
@@ -62,17 +55,68 @@ class SignUpViewController: UIViewController {
     
     @objc func textFieldDidChange() {
         guard let username = nameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            signUpBttn.isEnabled = false
             signUpBttn.setTitleColor(UIColor.black, for: UIControl.State.normal)
             signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
-            signUpBttn.isEnabled = false
             warningText.text = "Please enter the data"
             return
         }
+        if let email = emailTextField.text, !email.contains("@") {
+            self.signUpBttn.isEnabled = false
+            self.signUpBttn.setTitleColor(UIColor.black, for: UIControl.State.normal)
+            self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
+            warningText.text = "wrong email format"
+            return
+        }
+        if let email = emailTextField.text, !email.contains(".") {
+            self.signUpBttn.isEnabled = false
+            self.signUpBttn.setTitleColor(UIColor.black, for: UIControl.State.normal)
+            self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
+            warningText.text = "wrong email format"
+            return
+        }
+        if let password = passwordTextField.text, password.count < 6 {
+            self.signUpBttn.isEnabled = false
+            self.signUpBttn.setTitleColor(UIColor.black, for: UIControl.State.normal)
+            self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
+            warningText.text = "enter at least 6 characters"
+            return
+        }
         
-        warningText.text = nil
-        signUpBttn.isEnabled = true
-        signUpBttn.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
+            if error != nil {
+                self.signUpBttn.isEnabled = false
+                return
+            }
+
+            let uid = Auth.auth().currentUser?.uid
+            let storageRef = Storage.storage().reference(forURL: "gs://flexer-1bf0f.appspot.com/files").child("profile_image").child(uid!)
+
+            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
+                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+
+                    if error != nil {
+                        self.signUpBttn.isEnabled = false
+                        return
+                    }
+
+                    storageRef.downloadURL(completion: { (url, error) in
+
+                        if error != nil {
+                            self.signUpBttn.isEnabled = false
+                            return
+                        }
+
+                        self.setUserInfoWithImage(profileImageURL: url!.absoluteString, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
+                    })
+                }
+            }
+            self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
+            self.signUpBttn.isEnabled = true
+            self.warningText.text = nil
+            self.signUpBttn.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+        }
     }
     
     @objc func handleSelectProfileImage() {
@@ -88,37 +132,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBttn_TchUpInside(_ sender: Any) {
-
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
-            if error != nil {
-                print("error \(error!.localizedDescription)")
-                return
-            }
-
-            let uid = Auth.auth().currentUser?.uid
-            let storageRef = Storage.storage().reference(forURL: "gs://flexer-1bf0f.appspot.com/files").child("profile_image").child(uid!)
-
-            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
-                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
-
-                    if error != nil {
-                        return
-                    }
-
-                    storageRef.downloadURL(completion: { (url, error) in
-
-                        if error != nil {
-                            return
-                        }
-
-                        self.setUserInfoWithImage(profileImageURL: url!.absoluteString, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-                    })
-                }
-            }
-            self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-
-            self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
-        }
+        self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
     }
     
     func setUserInfoWithImage (profileImageURL: String, username: String, email: String, uid: String) {

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +28,7 @@ class ViewController: UIViewController {
         handleTextField()
         
         loginButton.isEnabled = false
-        loginButton.addTarget(self, action: #selector(SignUpViewController.tapped), for: .touchUpInside)
-    }
-    
-    @objc func tapped(sender: UIButton!) {
-        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            emailTextField.placeholder = "enter email"
-            passwordTextField.placeholder = "enter password"
-            return
-        }
+        loginButton.addTarget(self, action: #selector(ViewController.loginBttn_TouchUpInside), for: .touchUpInside)
     }
     
     func handleTextField() {
@@ -45,23 +38,36 @@ class ViewController: UIViewController {
     
     @objc func textFieldDidChange() {
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            errorText.text = "enter data"
+            self.loginButton.isEnabled = false
             loginButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
             loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
             return
         }
         
-        loginButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
-    }
-    
-    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
+        if let password = passwordTextField.text, password.count < 6 {
+            self.loginButton.isEnabled = false
+            loginButton.setTitleColor(UIColor.black, for: UIControl.State.normal)
+            loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
+            errorText.text = "enter data"
+            return
+        }
+        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error != nil {
+                self.errorText.text = "no such user"
                 print(error!.localizedDescription)
                 return
             }
-            self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
+            self.errorText.text = nil
+            self.loginButton.isEnabled = true
+            self.loginButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            self.loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         }
+    }
+    
+    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
+        self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
     }
 }
 
