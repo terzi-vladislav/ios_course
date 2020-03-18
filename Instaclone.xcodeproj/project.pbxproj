@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20702421B5DD0021A124 /* TabBarController.storyboard */; };
-		445D20772421B5DD0021A124 /* AddPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20712421B5DD0021A124 /* AddPhotoViewController.storyboard */; };
-		445D20782421B5DD0021A124 /* ActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20722421B5DD0021A124 /* ActivityViewController.storyboard */; };
-		445D20792421B5DD0021A124 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20732421B5DD0021A124 /* ProfileViewController.storyboard */; };
 		445D207A2421B5DD0021A124 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20742421B5DD0021A124 /* HomeViewController.storyboard */; };
 		445D207B2421B5DD0021A124 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20752421B5DD0021A124 /* SearchViewController.storyboard */; };
+		445D207F2421D71C0021A124 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D207E2421D71C0021A124 /* Config.swift */; };
+		445D20832421DF7F0021A124 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D20822421DF7F0021A124 /* TabBarViewController.swift */; };
+		445D20872421EDA30021A124 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20842421EDA20021A124 /* ProfileViewController.storyboard */; };
+		445D20882421EDA30021A124 /* AddPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20852421EDA30021A124 /* AddPhotoViewController.storyboard */; };
+		445D20892421EDA30021A124 /* ActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20862421EDA30021A124 /* ActivityViewController.storyboard */; };
 		44FA125924189C4300661667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125824189C4300661667 /* AppDelegate.swift */; };
 		44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125A24189C4300661667 /* SceneDelegate.swift */; };
 		44FA126224189C4700661667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FA126124189C4700661667 /* Assets.xcassets */; };
@@ -32,11 +34,13 @@
 /* Begin PBXFileReference section */
 		2BAE6A04820B047B3EB47A58 /* libPods-Instaclone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instaclone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		445D20702421B5DD0021A124 /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
-		445D20712421B5DD0021A124 /* AddPhotoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddPhotoViewController.storyboard; sourceTree = "<group>"; };
-		445D20722421B5DD0021A124 /* ActivityViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityViewController.storyboard; sourceTree = "<group>"; };
-		445D20732421B5DD0021A124 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		445D20742421B5DD0021A124 /* HomeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		445D20752421B5DD0021A124 /* SearchViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		445D207E2421D71C0021A124 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		445D20822421DF7F0021A124 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = "/Users/terzi-vladislav/Desktop/study/phystech/ios/Instaclone/ios_course/Instaclone/TabBarViewController.swift"; sourceTree = "<absolute>"; };
+		445D20842421EDA20021A124 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		445D20852421EDA30021A124 /* AddPhotoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddPhotoViewController.storyboard; sourceTree = "<group>"; };
+		445D20862421EDA30021A124 /* ActivityViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityViewController.storyboard; sourceTree = "<group>"; };
 		44FA125524189C4300661667 /* Instaclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FA125824189C4300661667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44FA125A24189C4300661667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +104,9 @@
 			children = (
 				44FA125824189C4300661667 /* AppDelegate.swift */,
 				44FA125A24189C4300661667 /* SceneDelegate.swift */,
+				445D207E2421D71C0021A124 /* Config.swift */,
 				44FA12882418B00700661667 /* ViewController.swift */,
+				445D20822421DF7F0021A124 /* TabBarViewController.swift */,
 				44FA128A2418B01A00661667 /* SignUpViewController.swift */,
 				44FA12CB241935E800661667 /* HomeViewController.swift */,
 				44FA12CD2419360800661667 /* SearchViewController.swift */,
@@ -111,9 +117,9 @@
 				445D20702421B5DD0021A124 /* TabBarController.storyboard */,
 				445D20742421B5DD0021A124 /* HomeViewController.storyboard */,
 				445D20752421B5DD0021A124 /* SearchViewController.storyboard */,
-				445D20712421B5DD0021A124 /* AddPhotoViewController.storyboard */,
-				445D20722421B5DD0021A124 /* ActivityViewController.storyboard */,
-				445D20732421B5DD0021A124 /* ProfileViewController.storyboard */,
+				445D20852421EDA30021A124 /* AddPhotoViewController.storyboard */,
+				445D20862421EDA30021A124 /* ActivityViewController.storyboard */,
+				445D20842421EDA20021A124 /* ProfileViewController.storyboard */,
 				44FA126124189C4700661667 /* Assets.xcassets */,
 				44FA126324189C4700661667 /* LaunchScreen.storyboard */,
 				44FA126624189C4700661667 /* Info.plist */,
@@ -191,14 +197,14 @@
 			files = (
 				44FA128D2418B02000661667 /* Main.storyboard in Resources */,
 				44FA126524189C4700661667 /* LaunchScreen.storyboard in Resources */,
-				445D20772421B5DD0021A124 /* AddPhotoViewController.storyboard in Resources */,
+				445D20892421EDA30021A124 /* ActivityViewController.storyboard in Resources */,
 				445D207B2421B5DD0021A124 /* SearchViewController.storyboard in Resources */,
 				445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */,
 				44FA12D62419396000661667 /* GoogleService-Info.plist in Resources */,
+				445D20882421EDA30021A124 /* AddPhotoViewController.storyboard in Resources */,
 				445D207A2421B5DD0021A124 /* HomeViewController.storyboard in Resources */,
+				445D20872421EDA30021A124 /* ProfileViewController.storyboard in Resources */,
 				44FA126224189C4700661667 /* Assets.xcassets in Resources */,
-				445D20792421B5DD0021A124 /* ProfileViewController.storyboard in Resources */,
-				445D20782421B5DD0021A124 /* ActivityViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,11 +242,13 @@
 			files = (
 				44FA12CE2419360800661667 /* SearchViewController.swift in Sources */,
 				44FA12CC241935E800661667 /* HomeViewController.swift in Sources */,
+				445D20832421DF7F0021A124 /* TabBarViewController.swift in Sources */,
 				44FA125924189C4300661667 /* AppDelegate.swift in Sources */,
 				44FA12D22419362700661667 /* ActivityViewController.swift in Sources */,
 				44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */,
 				44FA128B2418B01A00661667 /* SignUpViewController.swift in Sources */,
 				44FA12D42419363300661667 /* ProfileViewController.swift in Sources */,
+				445D207F2421D71C0021A124 /* Config.swift in Sources */,
 				44FA12D02419361C00661667 /* AddPhotoViewController.swift in Sources */,
 				44FA12892418B00700661667 /* ViewController.swift in Sources */,
 			);
