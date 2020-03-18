@@ -30,8 +30,9 @@ class HomeViewController: UIViewController {
     }
     
     func execute() {
-        let headers = HTTPHeaders([HTTPHeader.authorization("Token 650c296a8e578f02db54481f393afdb08cc216c8")])
-        let url = "https://cluster.likeup.me/api/get_hashtag_feed/?hashtag=mipt"
+        let headers = HTTPHeaders([HTTPHeader.authorization("Token \(Config.API_TOKEN)")])
+        let hashTag = "mipt"
+        let url = Config.HASHTAG_URL + hashTag
 
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil).responseJSON
             {
@@ -39,16 +40,4 @@ class HomeViewController: UIViewController {
             print(response)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
