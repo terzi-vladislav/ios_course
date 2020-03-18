@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import Firebase
 import Alamofire
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        execute()
+//        execute()
 
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func logOutBttn(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError {
+            print(signOutError)
+        }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = storyBoard.instantiateViewController(identifier: "SignInViewController")
+        self.present(signInVC, animated: true, completion: nil)
     }
     
     func execute() {

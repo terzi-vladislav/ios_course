@@ -31,6 +31,13 @@ class ViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(ViewController.loginBttn_TouchUpInside), for: .touchUpInside)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
+        }
+    }
+    
     func handleTextField() {
         emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -67,7 +74,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
     }
 }
 

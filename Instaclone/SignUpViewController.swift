@@ -43,8 +43,17 @@ class SignUpViewController: UIViewController {
         handleTextField()
         
         self.signUpBttn.isEnabled = false
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         signUpBttn.addTarget(self, action: #selector(SignUpViewController.signUpBttn_TchUpInside), for: .touchUpInside)
+    }
+    
+    @objc func signUpBttn_TchUpInside(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
+        let tabBarVC = storyBoard.instantiateViewController(identifier: "TabBar")
+        self.present(tabBarVC, animated: true, completion: nil)
     }
     
     func handleTextField() {
@@ -83,6 +92,9 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        self.warningText.text = nil
+
+        
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error != nil {
                 self.signUpBttn.isEnabled = false
@@ -113,7 +125,6 @@ class SignUpViewController: UIViewController {
             }
             self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
             self.signUpBttn.isEnabled = true
-            self.warningText.text = nil
             self.signUpBttn.setTitleColor(UIColor.white, for: UIControl.State.normal)
             self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         }
@@ -127,12 +138,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func dismiss_onClick(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func signUpBttn_TchUpInside(_ sender: Any) {
-        self.performSegue(withIdentifier: "SignUpToTabBar", sender: nil)
     }
     
     func setUserInfoWithImage (profileImageURL: String, username: String, email: String, uid: String) {
