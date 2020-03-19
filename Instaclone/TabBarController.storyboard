@@ -72,7 +72,6 @@
         <!--Add Photo View Controller-->
         <scene sceneID="KmI-ml-MDQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="24I-2S-n9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="pageSheet" id="xJA-N0-NgX" customClass="AddPhotoViewController" customModule="Instaclone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b3x-M2-nN2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -91,6 +90,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="plus.app" catalog="system" selectedImage="plus.app.fill" id="awE-if-gTK"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24I-2S-n9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="561" y="856"/>
         </scene>
@@ -102,10 +102,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCc-m9-EV3">
-                                <rect key="frame" x="16" y="108" width="343" height="606"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbf-oO-PIb">
                                 <rect key="frame" x="45" y="734" width="285" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,17 +114,34 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dy3-Ec-Y95">
+                                <rect key="frame" x="16" y="104.33333333333331" width="100" height="99.666666666666686"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="a3U-pa-wsg"/>
+                                    <constraint firstAttribute="width" constant="100" id="z58-mU-bUo"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your text here" translatesAutoresizingMaskIntoConstraints="NO" id="7Vp-ef-nWC">
+                                <rect key="frame" x="132" y="104" width="227" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="QcT-Q7-a6s"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="daY-Pq-0lD" firstAttribute="trailing" secondItem="QCc-m9-EV3" secondAttribute="trailing" constant="16" id="8gv-qk-qYO"/>
-                            <constraint firstItem="Zbf-oO-PIb" firstAttribute="top" secondItem="QCc-m9-EV3" secondAttribute="bottom" constant="20" id="AOm-dz-79l"/>
+                            <constraint firstItem="Dy3-Ec-Y95" firstAttribute="top" secondItem="daY-Pq-0lD" secondAttribute="top" constant="16" id="0l6-c2-EPt"/>
+                            <constraint firstItem="7Vp-ef-nWC" firstAttribute="leading" secondItem="Dy3-Ec-Y95" secondAttribute="trailing" constant="16" id="6ko-na-GbX"/>
+                            <constraint firstItem="Dy3-Ec-Y95" firstAttribute="leading" secondItem="daY-Pq-0lD" secondAttribute="leading" constant="16" id="6mQ-ja-Erz"/>
                             <constraint firstItem="daY-Pq-0lD" firstAttribute="trailing" secondItem="Zbf-oO-PIb" secondAttribute="trailing" constant="45" id="CE2-wA-Lcf"/>
-                            <constraint firstItem="QCc-m9-EV3" firstAttribute="leading" secondItem="daY-Pq-0lD" secondAttribute="leading" constant="16" id="Db0-Aq-gHX"/>
-                            <constraint firstItem="QCc-m9-EV3" firstAttribute="top" secondItem="daY-Pq-0lD" secondAttribute="top" constant="20" id="FAa-qX-IDa"/>
                             <constraint firstItem="Zbf-oO-PIb" firstAttribute="bottom" secondItem="daY-Pq-0lD" secondAttribute="bottom" id="KiI-6W-P1D"/>
                             <constraint firstItem="Zbf-oO-PIb" firstAttribute="leading" secondItem="daY-Pq-0lD" secondAttribute="leading" constant="45" id="NFN-Jt-1zh"/>
-                            <constraint firstItem="Zbf-oO-PIb" firstAttribute="top" secondItem="QCc-m9-EV3" secondAttribute="bottom" constant="20" id="b5p-Uk-Zfq"/>
+                            <constraint firstItem="daY-Pq-0lD" firstAttribute="trailing" secondItem="7Vp-ef-nWC" secondAttribute="trailing" constant="16" id="XCi-dA-aD4"/>
+                            <constraint firstItem="7Vp-ef-nWC" firstAttribute="top" secondItem="daY-Pq-0lD" secondAttribute="top" constant="16" id="zNh-RQ-epJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="daY-Pq-0lD"/>
                     </view>
@@ -282,6 +295,7 @@
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>

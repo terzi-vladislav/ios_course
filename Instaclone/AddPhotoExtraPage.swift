@@ -16,6 +16,7 @@ class AddPhotoExtraPage: UIViewController {
     }
     
     override func viewDidLoad() {
+        self.hideKeyboardWhenTappedAround()
         super.viewDidLoad()
         setUpNavigationBar()
         shareButton.layer.cornerRadius = 0.5 * shareButton.bounds.size.height
