@@ -10,6 +10,7 @@
 		445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20702421B5DD0021A124 /* TabBarController.storyboard */; };
 		445D207F2421D71C0021A124 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D207E2421D71C0021A124 /* Config.swift */; };
 		445D20832421DF7F0021A124 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D20822421DF7F0021A124 /* TabBarViewController.swift */; };
+		445D2097242330C30021A124 /* AddPhotoExtraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D2096242330C20021A124 /* AddPhotoExtraPage.swift */; };
 		44FA125924189C4300661667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125824189C4300661667 /* AppDelegate.swift */; };
 		44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125A24189C4300661667 /* SceneDelegate.swift */; };
 		44FA126224189C4700661667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FA126124189C4700661667 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		445D20702421B5DD0021A124 /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		445D207E2421D71C0021A124 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		445D20822421DF7F0021A124 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = "/Users/terzi-vladislav/Desktop/study/phystech/ios/Instaclone/ios_course/Instaclone/TabBarViewController.swift"; sourceTree = "<absolute>"; };
+		445D2096242330C20021A124 /* AddPhotoExtraPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoExtraPage.swift; sourceTree = "<group>"; };
 		44FA125524189C4300661667 /* Instaclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FA125824189C4300661667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44FA125A24189C4300661667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				44FA12CB241935E800661667 /* HomeViewController.swift */,
 				44FA12CD2419360800661667 /* SearchViewController.swift */,
 				44FA12CF2419361C00661667 /* AddPhotoViewController.swift */,
+				445D2096242330C20021A124 /* AddPhotoExtraPage.swift */,
 				44FA12D12419362700661667 /* ActivityViewController.swift */,
 				44FA12D32419363300661667 /* ProfileViewController.swift */,
 				44FA128C2418B02000661667 /* Main.storyboard */,
@@ -226,6 +229,7 @@
 				44FA125924189C4300661667 /* AppDelegate.swift in Sources */,
 				44FA12D22419362700661667 /* ActivityViewController.swift in Sources */,
 				44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */,
+				445D2097242330C30021A124 /* AddPhotoExtraPage.swift in Sources */,
 				44FA128B2418B01A00661667 /* SignUpViewController.swift in Sources */,
 				44FA12D42419363300661667 /* ProfileViewController.swift in Sources */,
 				445D207F2421D71C0021A124 /* Config.swift in Sources */,
