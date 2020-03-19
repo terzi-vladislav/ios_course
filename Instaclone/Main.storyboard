@@ -202,7 +202,7 @@
                         <outlet property="emailTextField" destination="MpH-SF-LYP" id="s1R-s1-kz2"/>
                         <outlet property="nameTextField" destination="yoq-l4-hAh" id="Ipf-sr-jSD"/>
                         <outlet property="passwordTextField" destination="Kia-sj-gvE" id="3cq-d3-2xu"/>
-                        <outlet property="profileImage" destination="hPQ-zV-qg5" id="9XD-KO-AMZ"/>
+                        <outlet property="profileImage" destination="hPQ-zV-qg5" id="l14-7V-OoJ"/>
                         <outlet property="signUpBttn" destination="14t-hA-h0g" id="bv3-Sp-Tm0"/>
                         <outlet property="signUpButton" destination="14t-hA-h0g" id="REm-W1-MMz"/>
                         <outlet property="warningText" destination="1Tk-ez-rNA" id="wK9-ss-LdL"/>

@@ -14,10 +14,20 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        execute()
-
     }
-    @IBAction func logOutBttn(_ sender: Any) {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: 44))
+        self.view.addSubview(navBar)
+
+        let navItem = UINavigationItem.init(title: "Instagram")
+        let logOutButton = UIBarButtonItem(title: "Logout", style: .plain, target: nil, action: #selector(HomeViewController.logOutBttn))
+        navItem.leftBarButtonItem = logOutButton
+
+        navBar.setItems([navItem], animated: false)
+    }
+    
+    @objc func logOutBttn(_ sender: Any) {
         do {
             try Auth.auth().signOut()
         } catch let signOutError {
@@ -26,6 +36,7 @@ class HomeViewController: UIViewController {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let signInVC = storyBoard.instantiateViewController(identifier: "SignInViewController")
+        signInVC.modalPresentationStyle = .fullScreen
         self.present(signInVC, animated: true, completion: nil)
     }
     
