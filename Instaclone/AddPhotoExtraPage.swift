@@ -52,7 +52,7 @@ class AddPhotoExtraPage: UIViewController {
 
                 if error != nil {
                     self.shareButton.isEnabled = false
-                    ProgressHUD.showError()
+                    ProgressHUD.showError(error?.localizedDescription)
                     return
                 }
                 
@@ -60,7 +60,7 @@ class AddPhotoExtraPage: UIViewController {
 
                     if error != nil {
                         self.shareButton.isEnabled = false
-                        ProgressHUD.showError()
+                        ProgressHUD.showError(error?.localizedDescription)
                         return
                     }
                     
@@ -69,11 +69,13 @@ class AddPhotoExtraPage: UIViewController {
                     let userReference = ref.child("users").child(uid).child("posts")
                     let newPhotoReference = userReference.child(photoIdString)
                     newPhotoReference.setValue(["photo": url!.absoluteString, "caption": self.caption.text!])
-                    ProgressHUD.showSuccess()
+                    ProgressHUD.showSuccess("Successful")
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 })
             }
         }
-        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -90,10 +90,10 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpBttn_TouchUpInside(_ sender: Any) {
-        ProgressHUD.show("Progress")
+        ProgressHUD.show("Signing up", interaction: false)
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error != nil {
-                ProgressHUD.showError("Error")
+                ProgressHUD.showError(error?.localizedDescription)
                 self.signUpBttn.isEnabled = false
                 return
             }
@@ -121,7 +121,7 @@ class SignUpViewController: UIViewController {
                 }
             }
             self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-            ProgressHUD.showSuccess("Success")
+            ProgressHUD.showSuccess("Successful")
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                 let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let signInVC = storyBoard.instantiateViewController(identifier: "TabBar")

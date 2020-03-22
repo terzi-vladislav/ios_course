@@ -19,6 +19,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ProgressHUD.imageError(UIImage(named: "krestik"))
+        ProgressHUD.imageSuccess(UIImage(named: "galochka"))
+        ProgressHUD.colorHUD(UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3))
         
         self.hideKeyboardWhenTappedAround()
         loginButton.layer.cornerRadius = 0.5 * loginButton.bounds.size.height
@@ -30,7 +33,6 @@ class ViewController: UIViewController {
         
         loginButton.isEnabled = false
         loginButton.addTarget(self, action: #selector(self.loginBttn_TouchUpInside), for: .touchUpInside)
-        ProgressHUD.colorHUD(UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +73,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
-        ProgressHUD.show("progrss", interaction: false)
+        ProgressHUD.show("Loggin in", interaction: false)
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error != nil {
                 self.errorText.text = "no such user"
@@ -79,7 +81,7 @@ class ViewController: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
-            ProgressHUD.showSuccess()
+            ProgressHUD.showSuccess("Successful")
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                 let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let signInVC = storyBoard.instantiateViewController(identifier: "TabBar")

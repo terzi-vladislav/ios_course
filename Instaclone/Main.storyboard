@@ -89,6 +89,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ccD-81-Sp1" firstAttribute="bottom" secondItem="KGd-3C-LlX" secondAttribute="bottom" id="3Qu-nf-4JI"/>
                             <constraint firstItem="KGd-3C-LlX" firstAttribute="trailing" secondItem="ccD-81-Sp1" secondAttribute="trailing" constant="107" id="bD1-VE-CA8"/>
@@ -183,6 +184,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fRW-Q8-faV" firstAttribute="bottom" secondItem="glZ-4T-b9Y" secondAttribute="bottom" id="bIY-zs-qhb"/>
                             <constraint firstItem="fRW-Q8-faV" firstAttribute="leading" secondItem="glZ-4T-b9Y" secondAttribute="leading" constant="73" id="l4G-gg-CGn"/>
