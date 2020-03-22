@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 
 class AddPhotoExtraPage: UIViewController {
     
@@ -42,6 +43,7 @@ class AddPhotoExtraPage: UIViewController {
     }
     
     @IBAction func sgareBttn_touchUpInside(_ sender: Any) {
+        ProgressHUD.show("Posting", interaction: false)
         if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
             let uid = (Auth.auth().currentUser?.uid)!
             let photoIdString = NSUUID().uuidString
@@ -50,6 +52,7 @@ class AddPhotoExtraPage: UIViewController {
 
                 if error != nil {
                     self.shareButton.isEnabled = false
+                    ProgressHUD.showError()
                     return
                 }
                 
@@ -57,6 +60,7 @@ class AddPhotoExtraPage: UIViewController {
 
                     if error != nil {
                         self.shareButton.isEnabled = false
+                        ProgressHUD.showError()
                         return
                     }
                     
@@ -65,6 +69,7 @@ class AddPhotoExtraPage: UIViewController {
                     let userReference = ref.child("users").child(uid).child("posts")
                     let newPhotoReference = userReference.child(photoIdString)
                     newPhotoReference.setValue(["photo": url!.absoluteString, "caption": self.caption.text!])
+                    ProgressHUD.showSuccess()
                 })
             }
         }

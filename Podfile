@@ -12,6 +12,7 @@ target 'Instaclone' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Alamofire', '~> 5.0'
+  pod 'ProgressHUD'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
   # Pods for Instagram

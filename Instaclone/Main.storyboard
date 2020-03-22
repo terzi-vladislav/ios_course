@@ -78,7 +78,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBttn_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7op-eZ-ZBx"/>
-                                    <segue destination="tBf-mL-t1f" kind="presentation" identifier="SignInToTabBar" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="xrZ-Vz-ddi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl1-Gi-90W">
@@ -149,7 +148,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpBttn_TchUpInside:" destination="oss-IT-dtX" eventType="touchUpInside" id="8B7-yu-j1N"/>
+                                    <action selector="signUpBttn_TouchUpInside:" destination="oss-IT-dtX" eventType="touchUpInside" id="JQD-MP-RQr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-Q8-faV">
@@ -204,14 +203,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HTW-NF-U0y" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="40.64039408866995"/>
-        </scene>
-        <!--TabBar-->
-        <scene sceneID="txe-uj-A3M">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TabBar" storyboardName="TabBarController" referencedIdentifier="TabBar" id="tBf-mL-t1f" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g1j-DH-ZGI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-244" y="856"/>
         </scene>
     </scenes>
     <resources>

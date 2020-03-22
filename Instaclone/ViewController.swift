@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class ViewController: UIViewController {
 
@@ -29,12 +30,16 @@ class ViewController: UIViewController {
         
         loginButton.isEnabled = false
         loginButton.addTarget(self, action: #selector(self.loginBttn_TouchUpInside), for: .touchUpInside)
+        ProgressHUD.colorHUD(UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "SignInToTabBar", sender: nil)
+            let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
+            let signInVC = storyBoard.instantiateViewController(identifier: "TabBar")
+            signInVC.modalPresentationStyle = .fullScreen
+            self.present(signInVC, animated: true, completion: nil)
         }
     }
     
@@ -59,21 +64,29 @@ class ViewController: UIViewController {
             errorText.text = "enter data"
             return
         }
-        
+        self.errorText.text = nil
+        self.loginButton.isEnabled = true
+        self.loginButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        self.loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+    }
+    
+    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
+        ProgressHUD.show("progrss", interaction: false)
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
             if error != nil {
                 self.errorText.text = "no such user"
                 print(error!.localizedDescription)
+                ProgressHUD.showError(error!.localizedDescription)
                 return
             }
-            self.errorText.text = nil
-            self.loginButton.isEnabled = true
-            self.loginButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            self.loginButton.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+            ProgressHUD.showSuccess()
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
+                let signInVC = storyBoard.instantiateViewController(identifier: "TabBar")
+                signInVC.modalPresentationStyle = .fullScreen
+                self.present(signInVC, animated: true, completion: nil)
+            }
         }
-    }
-    
-    @IBAction func loginBttn_TouchUpInside(_ sender: Any) {
     }
 }
 

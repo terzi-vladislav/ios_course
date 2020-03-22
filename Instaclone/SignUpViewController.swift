@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 class SignUpViewController: UIViewController {
     
@@ -43,17 +44,7 @@ class SignUpViewController: UIViewController {
         handleTextField()
         
         self.signUpBttn.isEnabled = false
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        signUpBttn.addTarget(self, action: #selector(SignUpViewController.signUpBttn_TchUpInside), for: .touchUpInside)
-    }
-    
-    @objc func signUpBttn_TchUpInside(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
-        let tabBarVC = storyBoard.instantiateViewController(identifier: "TabBar")
-        self.present(tabBarVC, animated: true, completion: nil)
+        signUpBttn.addTarget(self, action: #selector(self.signUpBttn_TouchUpInside), for: .touchUpInside)
     }
     
     func handleTextField() {
@@ -93,14 +84,20 @@ class SignUpViewController: UIViewController {
         }
         
         self.warningText.text = nil
-
-        
+        self.signUpBttn.isEnabled = true
+        self.signUpBttn.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+    }
+    
+    @IBAction func signUpBttn_TouchUpInside(_ sender: Any) {
+        ProgressHUD.show("Progress")
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error != nil {
+                ProgressHUD.showError("Error")
                 self.signUpBttn.isEnabled = false
                 return
             }
-
+            
             let uid = Auth.auth().currentUser?.uid
             let storageRef = Storage.storage().reference(forURL: Config.STORAGE_REF).child("profile_image").child(uid!)
 
@@ -124,9 +121,13 @@ class SignUpViewController: UIViewController {
                 }
             }
             self.setUserInfoWithoutImage(username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-            self.signUpBttn.isEnabled = true
-            self.signUpBttn.setTitleColor(UIColor.white, for: UIControl.State.normal)
-            self.signUpBttn.backgroundColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
+            ProgressHUD.showSuccess("Success")
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+                let storyBoard = UIStoryboard(name: "TabBarController", bundle: nil)
+                let signInVC = storyBoard.instantiateViewController(identifier: "TabBar")
+                signInVC.modalPresentationStyle = .fullScreen
+                self.present(signInVC, animated: true, completion: nil)
+            }
         }
     }
     
