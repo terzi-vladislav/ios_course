@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController {
         emailTextField.tintColor = UIColor(white: 1.0, alpha: 0.6)
         passwordTextField.tintColor = UIColor(white: 1.0, alpha: 0.6)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleSelectProfileImage))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImage))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
         
@@ -57,9 +57,9 @@ class SignUpViewController: UIViewController {
     }
     
     func handleTextField() {
-        nameTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        nameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     
     @objc func textFieldDidChange() {
@@ -131,7 +131,6 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func handleSelectProfileImage() {
-        
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)

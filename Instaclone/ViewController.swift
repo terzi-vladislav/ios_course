@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         handleTextField()
         
         loginButton.isEnabled = false
-        loginButton.addTarget(self, action: #selector(ViewController.loginBttn_TouchUpInside), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(self.loginBttn_TouchUpInside), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,8 +39,8 @@ class ViewController: UIViewController {
     }
     
     func handleTextField() {
-        emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     
     @objc func textFieldDidChange() {

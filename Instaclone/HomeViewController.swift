@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import Alamofire
 
 class HomeViewController: UIViewController {
     
@@ -37,17 +36,5 @@ class HomeViewController: UIViewController {
         let signInVC = storyBoard.instantiateViewController(identifier: "SignInViewController")
         signInVC.modalPresentationStyle = .fullScreen
         self.present(signInVC, animated: true, completion: nil)
-    }
-    
-    func execute() {
-        let headers = HTTPHeaders([HTTPHeader.authorization("Token \(Config.API_TOKEN)")])
-        let hashTag = "mipt"
-        let url = Config.HASHTAG_URL + hashTag
-
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil).responseJSON
-            {
-                response in
-            print(response)
-        }
     }
 }
