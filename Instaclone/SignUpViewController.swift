@@ -101,7 +101,7 @@ class SignUpViewController: UIViewController {
             let uid = Auth.auth().currentUser?.uid
             let storageRef = Storage.storage().reference(forURL: Config.STORAGE_REF).child("profile_image").child(uid!)
 
-            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
+            if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.2) {
                 storageRef.putData(imageData, metadata: nil) { (metadata, error) in
 
                     if error != nil {

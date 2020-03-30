@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProgressHUD.imageError(UIImage(named: "krestik"))
-        ProgressHUD.imageSuccess(UIImage(named: "galochka"))
+        ProgressHUD.imageError(UIImage(named: "x"))
+        ProgressHUD.imageSuccess(UIImage(named: "check"))
         ProgressHUD.colorHUD(UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3))
         
         self.hideKeyboardWhenTappedAround()

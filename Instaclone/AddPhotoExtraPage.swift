@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ProgressHUD
 
-class AddPhotoExtraPage: UIViewController {
+class AddPhotoExtraPage: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var caption: UITextView!
@@ -30,6 +30,25 @@ class AddPhotoExtraPage: UIViewController {
         photo.isUserInteractionEnabled = true
         shareButton.isHidden = true
         shareButton.isEnabled = false
+        caption.text = "Your text here"
+        caption.textColor = .lightGray
+        caption.delegate = self
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Your text here" && textView.textColor == .lightGray) {
+            textView.text = ""
+            textView.textColor = .white
+        }
+        textView.becomeFirstResponder() //Optional
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "") {
+            textView.text = "Your text here"
+            textView.textColor = .lightGray
+        }
+        textView.resignFirstResponder()
     }
     
     func setUpNavigationBar() {
@@ -68,7 +87,7 @@ class AddPhotoExtraPage: UIViewController {
                     let ref = Database.database().reference()
                     let userReference = ref.child("users").child(uid).child("posts")
                     let newPhotoReference = userReference.child(photoIdString)
-                    newPhotoReference.setValue(["photo": url!.absoluteString, "caption": self.caption.text!])
+                    newPhotoReference.setValue(["photo": url!.absoluteString, "caption": self.caption.text!, "date": "\(Calendar.current.dateComponents([.year, .month, .day], from: Date()))"])
                     ProgressHUD.showSuccess("Successful")
                     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
                         self.dismiss(animated: true, completion: nil)
@@ -93,5 +112,6 @@ extension AddPhotoExtraPage: UIImagePickerControllerDelegate, UINavigationContro
         }
         
         dismiss(animated: true, completion: nil)
+        view.endEditing(true)
     }
 }

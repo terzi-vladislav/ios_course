@@ -20,7 +20,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         setUpNavigationBar()
         tabBarItem.title = ""
         continueTransfer = true
-//        execute()
+        tableView.dataSource = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -35,7 +35,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return photos.count
         return 5
     }
     

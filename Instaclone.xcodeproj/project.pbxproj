@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44208CE92431F71D004120B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44208CE82431F71D004120B9 /* Assets.xcassets */; };
+		44208CEC24320277004120B9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44208CEB24320277004120B9 /* Post.swift */; };
+		44208CF024324693004120B9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44208CEF24324693004120B9 /* PostTableViewCell.swift */; };
 		445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445D20702421B5DD0021A124 /* TabBarController.storyboard */; };
 		445D207F2421D71C0021A124 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D207E2421D71C0021A124 /* Config.swift */; };
 		445D20832421DF7F0021A124 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D20822421DF7F0021A124 /* TabBarViewController.swift */; };
@@ -15,7 +18,6 @@
 		445D209B2423EF470021A124 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D209A2423EF470021A124 /* PhotoTableViewCell.swift */; };
 		44FA125924189C4300661667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125824189C4300661667 /* AppDelegate.swift */; };
 		44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125A24189C4300661667 /* SceneDelegate.swift */; };
-		44FA126224189C4700661667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FA126124189C4700661667 /* Assets.xcassets */; };
 		44FA126524189C4700661667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44FA126324189C4700661667 /* LaunchScreen.storyboard */; };
 		44FA12892418B00700661667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA12882418B00700661667 /* ViewController.swift */; };
 		44FA128B2418B01A00661667 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA128A2418B01A00661667 /* SignUpViewController.swift */; };
@@ -31,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		2BAE6A04820B047B3EB47A58 /* libPods-Instaclone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instaclone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44208CE82431F71D004120B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		44208CEB24320277004120B9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		44208CEF24324693004120B9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		445D20702421B5DD0021A124 /* TabBarController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		445D207E2421D71C0021A124 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		445D20822421DF7F0021A124 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = "/Users/terzi-vladislav/Desktop/study/phystech/ios/Instaclone/ios_course/Instaclone/TabBarViewController.swift"; sourceTree = "<absolute>"; };
@@ -40,7 +45,6 @@
 		44FA125524189C4300661667 /* Instaclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FA125824189C4300661667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44FA125A24189C4300661667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44FA126124189C4700661667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44FA126424189C4700661667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44FA126624189C4700661667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44FA12882418B00700661667 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		44208CEA24320266004120B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44208CEB24320277004120B9 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		44FA124C24189C4300661667 = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +112,12 @@
 			children = (
 				44FA125824189C4300661667 /* AppDelegate.swift */,
 				44FA125A24189C4300661667 /* SceneDelegate.swift */,
+				44208CEA24320266004120B9 /* Model */,
 				445D207E2421D71C0021A124 /* Config.swift */,
 				44FA12882418B00700661667 /* ViewController.swift */,
 				44FA128A2418B01A00661667 /* SignUpViewController.swift */,
 				445D20822421DF7F0021A124 /* TabBarViewController.swift */,
+				44208CEF24324693004120B9 /* PostTableViewCell.swift */,
 				44FA12CB241935E800661667 /* HomeViewController.swift */,
 				445D20982423E8B90021A124 /* Photo.swift */,
 				445D209A2423EF470021A124 /* PhotoTableViewCell.swift */,
@@ -114,10 +128,11 @@
 				44FA12D32419363300661667 /* ProfileViewController.swift */,
 				44FA128C2418B02000661667 /* Main.storyboard */,
 				445D20702421B5DD0021A124 /* TabBarController.storyboard */,
-				44FA126124189C4700661667 /* Assets.xcassets */,
 				44FA126324189C4700661667 /* LaunchScreen.storyboard */,
+				44208CF124325162004120B9 /* LaunchScreen.storyboard */,
 				44FA126624189C4700661667 /* Info.plist */,
 				44FA12D52419396000661667 /* GoogleService-Info.plist */,
+				44208CE82431F71D004120B9 /* Assets.xcassets */,
 			);
 			path = Instaclone;
 			sourceTree = "<group>";
@@ -194,7 +209,7 @@
 				44FA126524189C4700661667 /* LaunchScreen.storyboard in Resources */,
 				445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */,
 				44FA12D62419396000661667 /* GoogleService-Info.plist in Resources */,
-				44FA126224189C4700661667 /* Assets.xcassets in Resources */,
+				44208CE92431F71D004120B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +271,9 @@
 				44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */,
 				445D20992423E8B90021A124 /* Photo.swift in Sources */,
 				445D2097242330C30021A124 /* AddPhotoExtraPage.swift in Sources */,
+				44208CEC24320277004120B9 /* Post.swift in Sources */,
 				44FA128B2418B01A00661667 /* SignUpViewController.swift in Sources */,
+				44208CF024324693004120B9 /* PostTableViewCell.swift in Sources */,
 				44FA12D42419363300661667 /* ProfileViewController.swift in Sources */,
 				445D207F2421D71C0021A124 /* Config.swift in Sources */,
 				44FA12D02419361C00661667 /* AddPhotoViewController.swift in Sources */,
@@ -267,6 +284,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		44208CF124325162004120B9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		44FA126324189C4700661667 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
