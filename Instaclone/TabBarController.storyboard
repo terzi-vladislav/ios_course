@@ -144,6 +144,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="EI6-ii-oCL">
+                                                    <rect key="frame" x="177" y="235" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LUI-H0-IZQ" firstAttribute="top" secondItem="2yz-YP-D5H" secondAttribute="bottom" constant="12" id="1Fu-UN-VZD"/>
@@ -166,6 +170,7 @@
                                         <connections>
                                             <outlet property="captionText" destination="LUI-H0-IZQ" id="PgD-v2-y4S"/>
                                             <outlet property="dateText" destination="XqY-Xz-f8H" id="E9n-oy-dRM"/>
+                                            <outlet property="loadingIndicator" destination="EI6-ii-oCL" id="0k2-1g-MsV"/>
                                             <outlet property="postPhoto" destination="2yz-YP-D5H" id="4LT-hp-qMk"/>
                                             <outlet property="profilePicture" destination="KwE-FP-FpR" id="wS8-cn-qua"/>
                                             <outlet property="userName" destination="jUc-jK-8M9" id="Fvf-6a-dvb"/>

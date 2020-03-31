@@ -63,7 +63,7 @@ class AddPhotoExtraPage: UIViewController, UITextViewDelegate {
     
     @IBAction func sgareBttn_touchUpInside(_ sender: Any) {
         ProgressHUD.show("Posting", interaction: false)
-        if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.5) {
+        if let profileIMG = self.selectedImage, let imageData = profileIMG.jpegData(compressionQuality: 0.3) {
             let uid = (Auth.auth().currentUser?.uid)!
             let photoIdString = NSUUID().uuidString
             let storageRef = Storage.storage().reference(forURL: Config.STORAGE_REF).child("posts").child(photoIdString)

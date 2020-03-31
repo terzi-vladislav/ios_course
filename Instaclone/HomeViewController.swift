@@ -13,6 +13,7 @@ import FirebaseDatabase
 class HomeViewController: UIViewController {
     
     var posts = [Post]()
+    var userName = "bog_ios_razrabotki"
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -25,19 +26,15 @@ class HomeViewController: UIViewController {
     
     func loadPosts() {
         let uid = (Auth.auth().currentUser?.uid)!
-        Database.database().reference().child("users").child(uid).observe(.value) { (snapshot: DataSnapshot) in
-            if let userName_UserPic = snapshot.value as? [String: Any] {
-                Database.database().reference().child("users").child(uid).child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-                    if let dict = snapshot.value as? [String: Any] {
-                        let captionText = dict["caption"] as! String
-                        let photoUrlString = dict["photo"] as! String
-                        let userName = userName_UserPic["username"] as! String
-                        let date = dict["date"] as! String
-                        let post = Post(userName: userName, captionText:captionText, photoUrlString: photoUrlString, date: date)
-                        self.posts.append(post)
-                        self.tableView.reloadData()
-                    }
-                }
+        let ref = Database.database().reference().child("users")
+        ref.child(uid).child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let captionText = dict["caption"] as! String
+                let photoUrlString = dict["photo"] as! String
+                let date = dict["date"] as! String
+                let post = Post(userName: self.userName, captionText:captionText, photoUrlString: photoUrlString, date: date)
+                self.posts.append(post)
+                self.tableView.reloadData()
             }
         }
     }
@@ -74,14 +71,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.userName.text = posts[indexPath.row].user
         cell.captionText.text = posts[indexPath.row].caption
         cell.dateText.text = posts[indexPath.row].dateOfPost
-        let url = URL(string: posts[indexPath.row].photoUrl)
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url!) {
-                DispatchQueue.main.async {
-                    cell.postPhoto.image = UIImage(data: data)
-                }
-            }
-        }
+        cell.updateAppearanceFor(posts[indexPath.row].photoUrl)
         return cell
     }
 }
