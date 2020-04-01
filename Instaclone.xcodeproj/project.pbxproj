@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44091F94243431D000A96525 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44091F93243431D000A96525 /* Profile.storyboard */; };
 		44208CE92431F71D004120B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44208CE82431F71D004120B9 /* Assets.xcassets */; };
 		44208CEC24320277004120B9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44208CEB24320277004120B9 /* Post.swift */; };
 		44208CF024324693004120B9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44208CEF24324693004120B9 /* PostTableViewCell.swift */; };
@@ -16,6 +17,13 @@
 		445D2097242330C30021A124 /* AddPhotoExtraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D2096242330C20021A124 /* AddPhotoExtraPage.swift */; };
 		445D20992423E8B90021A124 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D20982423E8B90021A124 /* Photo.swift */; };
 		445D209B2423EF470021A124 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D209A2423EF470021A124 /* PhotoTableViewCell.swift */; };
+		44D9EC8C243409B60040087F /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9EC8B243409B60040087F /* ActivityTableViewCell.swift */; };
+		44D9EC8E243417860040087F /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D9EC8D243417860040087F /* HomeViewController.storyboard */; };
+		44D9EC90243417B70040087F /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D9EC8F243417B70040087F /* SearchViewController.storyboard */; };
+		44D9EC922434198F0040087F /* AddPhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D9EC912434198F0040087F /* AddPhoto.storyboard */; };
+		44D9EC94243419B90040087F /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D9EC93243419B90040087F /* Activity.storyboard */; };
+		44D9EC9624341BE30040087F /* PhotoTripletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9EC9524341BE30040087F /* PhotoTripletTableViewCell.swift */; };
+		44D9EC9824342ED10040087F /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D9EC9724342ED10040087F /* PhotoViewController.swift */; };
 		44FA125924189C4300661667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125824189C4300661667 /* AppDelegate.swift */; };
 		44FA125B24189C4300661667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA125A24189C4300661667 /* SceneDelegate.swift */; };
 		44FA126524189C4700661667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44FA126324189C4700661667 /* LaunchScreen.storyboard */; };
@@ -33,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2BAE6A04820B047B3EB47A58 /* libPods-Instaclone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Instaclone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44091F93243431D000A96525 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		44208CE82431F71D004120B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44208CEB24320277004120B9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		44208CEF24324693004120B9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -42,6 +51,13 @@
 		445D2096242330C20021A124 /* AddPhotoExtraPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoExtraPage.swift; sourceTree = "<group>"; };
 		445D20982423E8B90021A124 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		445D209A2423EF470021A124 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		44D9EC8B243409B60040087F /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		44D9EC8D243417860040087F /* HomeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		44D9EC8F243417B70040087F /* SearchViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		44D9EC912434198F0040087F /* AddPhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddPhoto.storyboard; sourceTree = "<group>"; };
+		44D9EC93243419B90040087F /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		44D9EC9524341BE30040087F /* PhotoTripletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTripletTableViewCell.swift; sourceTree = "<group>"; };
+		44D9EC9724342ED10040087F /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		44FA125524189C4300661667 /* Instaclone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instaclone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FA125824189C4300661667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44FA125A24189C4300661667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,10 +140,18 @@
 				44FA12CD2419360800661667 /* SearchViewController.swift */,
 				44FA12CF2419361C00661667 /* AddPhotoViewController.swift */,
 				445D2096242330C20021A124 /* AddPhotoExtraPage.swift */,
+				44D9EC8B243409B60040087F /* ActivityTableViewCell.swift */,
 				44FA12D12419362700661667 /* ActivityViewController.swift */,
+				44D9EC9524341BE30040087F /* PhotoTripletTableViewCell.swift */,
 				44FA12D32419363300661667 /* ProfileViewController.swift */,
+				44D9EC9724342ED10040087F /* PhotoViewController.swift */,
 				44FA128C2418B02000661667 /* Main.storyboard */,
 				445D20702421B5DD0021A124 /* TabBarController.storyboard */,
+				44D9EC8D243417860040087F /* HomeViewController.storyboard */,
+				44D9EC8F243417B70040087F /* SearchViewController.storyboard */,
+				44D9EC912434198F0040087F /* AddPhoto.storyboard */,
+				44D9EC93243419B90040087F /* Activity.storyboard */,
+				44091F93243431D000A96525 /* Profile.storyboard */,
 				44FA126324189C4700661667 /* LaunchScreen.storyboard */,
 				44208CF124325162004120B9 /* LaunchScreen.storyboard */,
 				44FA126624189C4700661667 /* Info.plist */,
@@ -206,8 +230,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				44FA128D2418B02000661667 /* Main.storyboard in Resources */,
+				44D9EC94243419B90040087F /* Activity.storyboard in Resources */,
+				44091F94243431D000A96525 /* Profile.storyboard in Resources */,
 				44FA126524189C4700661667 /* LaunchScreen.storyboard in Resources */,
+				44D9EC8E243417860040087F /* HomeViewController.storyboard in Resources */,
+				44D9EC90243417B70040087F /* SearchViewController.storyboard in Resources */,
 				445D20762421B5DD0021A124 /* TabBarController.storyboard in Resources */,
+				44D9EC922434198F0040087F /* AddPhoto.storyboard in Resources */,
 				44FA12D62419396000661667 /* GoogleService-Info.plist in Resources */,
 				44208CE92431F71D004120B9 /* Assets.xcassets in Resources */,
 			);
@@ -273,10 +302,13 @@
 				445D2097242330C30021A124 /* AddPhotoExtraPage.swift in Sources */,
 				44208CEC24320277004120B9 /* Post.swift in Sources */,
 				44FA128B2418B01A00661667 /* SignUpViewController.swift in Sources */,
+				44D9EC8C243409B60040087F /* ActivityTableViewCell.swift in Sources */,
 				44208CF024324693004120B9 /* PostTableViewCell.swift in Sources */,
 				44FA12D42419363300661667 /* ProfileViewController.swift in Sources */,
 				445D207F2421D71C0021A124 /* Config.swift in Sources */,
+				44D9EC9624341BE30040087F /* PhotoTripletTableViewCell.swift in Sources */,
 				44FA12D02419361C00661667 /* AddPhotoViewController.swift in Sources */,
+				44D9EC9824342ED10040087F /* PhotoViewController.swift in Sources */,
 				44FA12892418B00700661667 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

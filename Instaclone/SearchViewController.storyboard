@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16095" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16084.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="XSN-X9-7Tf">
+            <objects>
+                <viewController id="ak2-e5-Ymt" customClass="SearchViewController" customModule="Instaclone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nkA-a6-DcU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-V2-Kzh">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="PhotoTableViewCell" rowHeight="431" id="4PO-k3-sZt" customClass="PhotoTableViewCell" customModule="Instaclone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="431"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4PO-k3-sZt" id="Xur-DH-oYa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="431"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-yX-cHw">
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="429"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="375" id="Bju-AM-Sqs"/>
+                                                        <constraint firstAttribute="height" constant="375" id="pWn-bM-LV2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qck-QK-Nfo">
+                                                    <rect key="frame" x="177" y="205" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yw8-yX-cHw" firstAttribute="top" secondItem="Xur-DH-oYa" secondAttribute="top" constant="1" id="B2s-8y-YbO"/>
+                                                <constraint firstAttribute="bottom" secondItem="yw8-yX-cHw" secondAttribute="bottom" constant="1" id="CsY-bQ-XAP"/>
+                                                <constraint firstItem="yw8-yX-cHw" firstAttribute="leading" secondItem="Xur-DH-oYa" secondAttribute="leading" id="HB6-WY-VxY"/>
+                                                <constraint firstAttribute="trailing" secondItem="yw8-yX-cHw" secondAttribute="trailing" id="dOP-Q6-JWi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="loadingIndicator" destination="qck-QK-Nfo" id="NtO-Uk-ZAO"/>
+                                            <outlet property="photo" destination="yw8-yX-cHw" id="A9K-zv-15g"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lJM-V2-Kzh" firstAttribute="bottom" secondItem="LCO-la-AcR" secondAttribute="bottom" id="4S6-hm-Xyy"/>
+                            <constraint firstItem="lJM-V2-Kzh" firstAttribute="trailing" secondItem="LCO-la-AcR" secondAttribute="trailing" id="Dtm-CD-zsC"/>
+                            <constraint firstItem="lJM-V2-Kzh" firstAttribute="leading" secondItem="LCO-la-AcR" secondAttribute="leading" id="V8f-XL-Nkv"/>
+                            <constraint firstItem="lJM-V2-Kzh" firstAttribute="top" secondItem="LCO-la-AcR" secondAttribute="top" id="vqf-fL-q83"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LCO-la-AcR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="E3Y-0s-2yj"/>
+                    <connections>
+                        <outlet property="tableView" destination="lJM-V2-Kzh" id="G41-f8-Xtp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KA-7F-XW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1501.5999999999999" y="166.99507389162562"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wvv-Fo-E6M">
+            <objects>
+                <navigationController storyboardIdentifier="Search" automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="qdV-ir-W8g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="wtT-FC-zFV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2p6-cF-4yZ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ak2-e5-Ymt" kind="relationship" relationship="rootViewController" id="VEV-r8-guY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZXe-aO-etZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560.86956521739137" y="167.41071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

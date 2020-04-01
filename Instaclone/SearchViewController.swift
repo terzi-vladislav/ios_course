@@ -8,12 +8,15 @@
 
 import UIKit
 import Alamofire
+import ProgressHUD
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
     
     var photos: [Photo] = []
+    var pictureUrls: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tabBarItem.title = ""
         continueTransfer = true
         tableView.dataSource = self
+        searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            ProgressHUD.show("Searching", interaction: false)
+            pictureUrls = []
+            execute(hashTag: searchText.lowercased())
+        }
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -29,30 +42,43 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func setUpNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
+        navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = true
+        searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.placeholder = "Search for any IG Hashtag"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.pictureUrls.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell") as! PhotoTableViewCell
+        cell.updateAppearanceFor(pictureUrls[indexPath.row])
         return cell
     }
     
-    func execute() {
+    func execute(hashTag: String) {
         let headers = HTTPHeaders([HTTPHeader.authorization("Token \(Config.API_TOKEN)")])
-        let hashTag = "mipt"
         let url = Config.HASHTAG_URL + hashTag
-
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil).responseJSON
             {
                 response in
-            print(response)
+                if let apiResponse = response.value as? [[String : Any]] {
+                    for dict in apiResponse {
+                        if let pictureCandidates = dict["image_versions2"] as? NSDictionary {
+                            if let candidates = pictureCandidates["candidates"] as? NSArray {
+                                if let photoOptions = candidates[0] as? NSDictionary {
+                                    if let photoUrl = photoOptions["url"] as? String {
+                                        self.pictureUrls.append(photoUrl)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    self.tableView.reloadData()
+                    ProgressHUD.dismiss()
+                }
         }
     }
-    
 }
